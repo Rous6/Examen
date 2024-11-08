@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/dashboard:: header">
+</head>
+
+<body>
+<div class="layout-wrapper layout-content-navbar" >
+  <div class="layout-container">
+       <span th:replace="fragments/asider :: sidebar">
+       </span>
+    <div class="layout-page">
+      <span th:replace="fragments/header::header"></span>
+      <div class="content-wrapper">
+        <div class="container-xxl flex-grow-1 container-p-y">
+          <div class="row">
+            <div class="col-lg-12 mb-4 order-0">
+              <div class="card">
+                <div class="d-flex align-items-end row">
+                  <div class="col-sm-12">
+                    <div class="card-body">
+                      <h5 class="card-title text-primary">Listar de Estudiantes 🎉</h5>
+                      <div>
+                        <a th:href="@{/estudiantes/new}" class="btn btn-primary">Nuevo</a>
+                      </div>
+                      <div class="table-responsive text-nowrap">
+                        <table class="table">
+                          <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Acciones</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr th:each="student : ${listaStudent}">
+                            <td th:text="${student.id}"></td>
+                            <td th:text="${student.name}"></td>
+                            <td th:text="${student.firstName}"></td>
+                            <td th:text="${student.lastName}"></td>
+                            <td th:text="${student.email}"></td>
+                            <td th:text="${student.phone}"></td>
+                            <td>
+                              <a th:href="@{/estudiantes/showUpdateStudent/{id}(id=${student.id})}" class="btn btn-warning">Editar</a>
+                              <a th:href="@{/estudiantes/delete/{id}(id=${student.id})}" class="btn btn-danger">Eliminar</a>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <span th:replace="fragments/footer::footer"></span>
+        <div class="content-backdrop fade"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div th:replace="layout/dashboard::script"></div>
+</body>
+</html>

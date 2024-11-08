@@ -1,0 +1,4 @@
+1) realizar un crud ->-listar, crear, modificar eliminar usando el framework  spring boot
+2) crear un base de datos con una tabla de estudiantes con 5 prpiedades incluyendo el identificador
+3) el crud debe mostrarce en vista em html, usar bootstrap o tu propio diseño
+4) realizar buenas practicas de programacion

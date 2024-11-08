@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/dashboard:: header">
+</head>
+<body>
+<div class="layout-wrapper layout-content-navbar" >
+    <div class="layout-container">
+       <span th:replace="fragments/asider :: sidebar">
+       </span>
+        <div class="layout-page">
+            <span th:replace="fragments/header::header"></span>
+            <div class="content-wrapper">
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <div class="row">
+                        <div class="col-lg-12 mb-4 order-0">
+                            <div class="card">
+                                <div class="d-flex align-items-end row">
+                                    <div class="col-sm-12">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-primary">Agregar Estudiantes🎉</h5>
+                                            <form th:action="@{/estudiantes/save}" th:object="${student}" method="post">
+                                                <div>
+                                                    <label>Nombre del Estudiante</label>
+                                                    <input type="text" th:field="*{name}" class="form-control" placeholder="Rous" required>
+                                                </div>
+                                                <div>
+                                                    <label>Apellido Paterno</label>
+                                                    <input type="text" th:field="*{firstName}" class="form-control" placeholder="Aroni" required>
+                                                </div>
+                                                <div>
+                                                    <label>Apellido Materno</label>
+                                                    <input type="text" th:field="*{lastName}" class="form-control" placeholder="Cjuro" required>
+                                                </div>
+                                                <div>
+                                                    <label>Correo</label>
+                                                    <input type="email" th:field="*{email}" class="form-control" placeholder="rousaronicjuro@gmail.com" required>
+                                                </div>
+                                                <div>
+                                                    <label>Teléfono</label>
+                                                    <input type="text" th:field="*{phone}" class="form-control" placeholder="Teléfono" required>
+                                                </div>
+                                                <div class="mt-3">
+                                                    <button type="submit" class="btn btn-success btn-sm">Guadar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <span th:replace="fragments/footer::footer"></span>
+                <div class="content-backdrop fade"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="layout/dashboard::script"></div>
+</body>
+</html>
